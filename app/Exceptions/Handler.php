@@ -24,7 +24,8 @@ class Handler extends ExceptionHandler
      * @var array<int, class-string<\Throwable>>
      */
     protected $dontReport = [
-        //
+        CategoryDeleteException::class,
+        ProductDeleteException::class,
     ];
 
     /**
@@ -50,6 +51,22 @@ class Handler extends ExceptionHandler
 
     public function render($request, Exception|Throwable $exception)
     {
+        if ($exception instanceof CategoryDeleteException) {
+            return response()->json([
+                'success' => false,
+                'errors' => ['Cannot be deleted because of the connection to the product.'],
+                'data' => [],
+            ], 400);
+        }
+
+        if ($exception instanceof ProductDeleteException) {
+            return response()->json([
+                'success' => false,
+                'errors' => ['Product already deleted.'],
+                'data' => [],
+            ], 400);
+        }
+
         if ($exception instanceof ModelNotFoundException && $request->wantsJson()) {
             return response()->json([
                 'success' => false,
@@ -57,5 +74,7 @@ class Handler extends ExceptionHandler
                 'data' => [],
             ], 404);
         }
+
+        return parent::render($request, $exception);
     }
 }

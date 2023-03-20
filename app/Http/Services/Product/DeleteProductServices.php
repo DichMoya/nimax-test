@@ -2,6 +2,7 @@
 
 namespace App\Http\Services\Product;
 
+use App\Exceptions\ProductDeleteException;
 use App\Models\Product;
 
 class DeleteProductServices
@@ -9,8 +10,9 @@ class DeleteProductServices
     public function delete(Product $product): Product
     {
         if($product->is_deleted) {
-            throw new \Exception('Product already deleted.');
+            throw new ProductDeleteException();
         }
+
         $product->update([
             'is_deleted' => true
         ]);
