@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Category\StoreCategoryRequest;
+use App\Http\Requests\Product\IndexProductRequest;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
@@ -19,8 +20,9 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(IndexProductServices $indexProductService): JsonResponse
+    public function index(IndexProductServices $indexProductService, IndexProductRequest $request): JsonResponse
     {
+        $request->validated();
         return $this->sendResponse(
             ProductResource::collection($indexProductService->index()),
             'Product retrieved successfully.');
