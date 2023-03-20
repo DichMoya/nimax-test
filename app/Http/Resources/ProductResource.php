@@ -18,6 +18,7 @@ class ProductResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
+            'price' => $this->price,
             'is_published' => (bool) $this->is_published,
             'is_deleted' => (bool) $this->is_deleted,
             'categories' => $this->categories->map->only('id', 'name'),
