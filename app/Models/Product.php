@@ -18,7 +18,7 @@ class Product extends Model
         'is_deleted',
     ];
 
-    public function categories(): BelongsToMany
+    public function productCategory(): BelongsToMany
     {
         return $this->belongsToMany(Category::class, 'product_categories');
     }
