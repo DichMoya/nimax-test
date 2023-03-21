@@ -20,6 +20,11 @@ class Product extends Model
         'is_deleted',
     ];
 
+    protected $casts = [
+        'is_published' => 'boolean',
+        'is_deleted' => 'boolean',
+    ];
+
     protected static function boot()
     {
         parent::boot();
