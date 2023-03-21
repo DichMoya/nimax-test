@@ -67,8 +67,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product, DeleteProductServices $deleteProductServices): JsonResponse
     {
+        $deleteProductServices->delete($product);
         return $this->sendResponse(
-            new ProductResource($deleteProductServices->delete($product)),
+            [],
             'Product deleted successfully.');
     }
 }

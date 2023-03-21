@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class DeleteProductServices
 {
-    public function delete(Product $product): Product
+    public function delete(Product $product)
     {
         if($product->is_deleted) {
             throw new ProductDeleteException();
@@ -16,6 +16,5 @@ class DeleteProductServices
         $product->update([
             'is_deleted' => true
         ]);
-        return $product;
     }
 }
