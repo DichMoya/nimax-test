@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Resources\CategoryResource;
-use App\Http\Resources\CategoryСollectionResource;
-use App\Http\Services\Category\DeleteCategoryService;
-use App\Http\Services\Category\IndexCategoryService;
-use App\Http\Services\Category\StoreCategoryService;
 use App\Models\Category;
+use App\Services\Category\DeleteCategoryService;
+use App\Services\Category\IndexCategoryService;
+use App\Services\Category\StoreCategoryService;
 use Illuminate\Http\JsonResponse;
 
 class CategoryController extends Controller

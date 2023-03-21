@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Product\IndexProductRequest;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
-use App\Http\Services\Product\DeleteProductServices;
-use App\Http\Services\Product\IndexProductServices;
-use App\Http\Services\Product\StoreProductServices;
-use App\Http\Services\Product\UpdateProductService;
 use App\Models\Product;
+use App\Services\Product\DeleteProductServices;
+use App\Services\Product\IndexProductServices;
+use App\Services\Product\StoreProductServices;
+use App\Services\Product\UpdateProductService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {

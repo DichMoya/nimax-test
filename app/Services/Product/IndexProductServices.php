@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services\Product;
+namespace App\Services\Product;
 
 use App\Filters\Product\ProductCategoryFilter;
 use App\Filters\Product\ProductCategoryNameFilter;
@@ -9,6 +9,7 @@ use App\Filters\Product\ProductNameFilter;
 use App\Filters\Product\ProductPricesFilter;
 use App\Models\Product;
 use Illuminate\Pipeline\Pipeline;
+use function app;
 
 class IndexProductServices
 {

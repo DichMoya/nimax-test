@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services\Category;
+namespace App\Services\Category;
 
 use App\Exceptions\CategoryDeleteException;
 use App\Models\Category;
